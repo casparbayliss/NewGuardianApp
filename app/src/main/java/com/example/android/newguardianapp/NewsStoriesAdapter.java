@@ -40,7 +40,7 @@ public class NewsStoriesAdapter extends ArrayAdapter<NewsStories> {
 
         // Get the TextView for the headline
         TextView headlineTextView = (TextView) listItemView.findViewById(R.id.headline_text_view);
-        // Store hte article headline as a string
+        // Store the article headline as a string
         String articleHeadline = currentNewsStory.getHeadline();
         // Set the text on the headline TextView to the headline for the appropriate News Story
         headlineTextView.setText(articleHeadline);
@@ -52,12 +52,19 @@ public class NewsStoriesAdapter extends ArrayAdapter<NewsStories> {
         // Set the date on the date TextView to the date for the appropriate News Story
         dateTextView.setText(headlineDate);
 
+        // Get the TextView for the Author
+        TextView authorTextView = (TextView) listItemView.findViewById(R.id.author_text_view);
+        // Store the author name as a string
+        String authorName = currentNewsStory.getAuthor();
+        // Set the author name on the author TextView to the author appropriate for the story
+        authorTextView.setText(authorName);
+
         // Get the TextView for the URL
-        TextView urlTextView = (TextView) listItemView.findViewById(R.id.url_text_view);
+        // TextView urlTextView = (TextView) listItemView.findViewById(R.id.url_text_view);
         // Store the URL as a string
-        String urlAddress = currentNewsStory.getUrl();
+        // String urlAddress = currentNewsStory.getUrl();
         // Set the URL on the URL TextView to the URl for the appropriate News Story
-        urlTextView.setText(urlAddress);
+        // urlTextView.setText(urlAddress);
 
         // Return the whole list item layout: three TextViews.
         return listItemView;

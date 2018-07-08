@@ -11,17 +11,22 @@ public class NewsStories {
 
     private String mDate;
 
+    private String mAuthor;
+
     private String mUrl;
 
-    public NewsStories(String vHeadline, String vDate, String vUrl) {
+    public NewsStories(String vHeadline, String vDate, String vAuthor, String vUrl) {
         mHeadline = vHeadline;
         mDate = vDate;
+        mAuthor = vAuthor;
         mUrl = vUrl;
     }
 
     public String getHeadline(){return mHeadline;}
 
     public String getDate(){return mDate;}
+
+    public String getAuthor(){return mAuthor;}
 
     public String getUrl(){return mUrl;}
 

@@ -1,8 +1,6 @@
 package com.example.android.newguardianapp;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.AsyncTaskLoader;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -10,29 +8,19 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.Loader;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v4.content.Loader;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.widget.CursorAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,20 +28,19 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FootballFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsStories>> {
+public class CultureFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsStories>> {
 
 
-    public FootballFragment() {
+    public CultureFragment() {
         // Required empty public constructor
     }
-
 
 
     private static final int NEWS_STORIES_LOADER_ID = 1;
 
     // Create the URL for the query
     private static final String USGS_REQUEST_URL =
-            "http://content.guardianapis.com/search?show-tags=contributor&section=football&order-by=newest&api-key=4d140bcc-14e5-4324-9d3e-2ed236257e30";
+            "http://content.guardianapis.com/search?show-tags=contributor&section=culture&order-by=newest&api-key=4d140bcc-14e5-4324-9d3e-2ed236257e30";
 
     // Adapter for the news stories
     private NewsStoriesAdapter mAdapter;
@@ -68,7 +55,6 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.activity_main, container, false);
-
 
 
         // Get the SwipeContainerLayout
@@ -86,7 +72,7 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
                     // Refresh the loader
                     LoaderManager refreshLoaderManager = getLoaderManager();
                     refreshLoaderManager.restartLoader(NEWS_STORIES_LOADER_ID, null,
-                            FootballFragment.this);
+                            CultureFragment.this);
                 } else {
                     // Otherwise, display error
                     //First, hide the the progress spinner so the error message will be visible
@@ -110,7 +96,6 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
                 }, 4000); // Delay in millis
             }
         });
-
 
 
         // Find the listView and assign it a variable name
@@ -153,13 +138,13 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
         // If there is a network connection, fetch data
-        if(networkInfo != null && networkInfo.isConnected()) {
+        if (networkInfo != null && networkInfo.isConnected()) {
 
             // Get a reference to the LoaderManager in order to interact with loaders
             LoaderManager loaderManager = getLoaderManager();
 
             // Initialise the loader
-            loaderManager.restartLoader(NEWS_STORIES_LOADER_ID, null, FootballFragment.this);
+            loaderManager.initLoader(NEWS_STORIES_LOADER_ID, null, CultureFragment.this);
         } else {
             // Otherwise, display error
             //First, hide the the progress spinner so the error message will be visible
@@ -169,7 +154,6 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
             // Update empty state with no connection error message
             mEmptyStateTextView.setText("No internet connection");
         }
-
 
 
         return rootView;

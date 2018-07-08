@@ -34,7 +34,7 @@
             tools:text="Placeholder for the date"/>
 
         <TextView
-            android:id="@+id/url_text_view"
+            android:id="@+id/author_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="italic"

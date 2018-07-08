@@ -40,20 +40,19 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FootballFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsStories>> {
+public class PoliticsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsStories>> {
 
 
-    public FootballFragment() {
+    public PoliticsFragment() {
         // Required empty public constructor
     }
-
 
 
     private static final int NEWS_STORIES_LOADER_ID = 1;
 
     // Create the URL for the query
     private static final String USGS_REQUEST_URL =
-            "http://content.guardianapis.com/search?show-tags=contributor&section=football&order-by=newest&api-key=4d140bcc-14e5-4324-9d3e-2ed236257e30";
+            "http://content.guardianapis.com/search?show-tags=contributor&section=politics&order-by=newest&api-key=4d140bcc-14e5-4324-9d3e-2ed236257e30";
 
     // Adapter for the news stories
     private NewsStoriesAdapter mAdapter;
@@ -68,7 +67,6 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.activity_main, container, false);
-
 
 
         // Get the SwipeContainerLayout
@@ -86,7 +84,7 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
                     // Refresh the loader
                     LoaderManager refreshLoaderManager = getLoaderManager();
                     refreshLoaderManager.restartLoader(NEWS_STORIES_LOADER_ID, null,
-                            FootballFragment.this);
+                            PoliticsFragment.this);
                 } else {
                     // Otherwise, display error
                     //First, hide the the progress spinner so the error message will be visible
@@ -110,7 +108,6 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
                 }, 4000); // Delay in millis
             }
         });
-
 
 
         // Find the listView and assign it a variable name
@@ -153,13 +150,13 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
         // If there is a network connection, fetch data
-        if(networkInfo != null && networkInfo.isConnected()) {
+        if (networkInfo != null && networkInfo.isConnected()) {
 
             // Get a reference to the LoaderManager in order to interact with loaders
             LoaderManager loaderManager = getLoaderManager();
 
             // Initialise the loader
-            loaderManager.restartLoader(NEWS_STORIES_LOADER_ID, null, FootballFragment.this);
+            loaderManager.restartLoader(NEWS_STORIES_LOADER_ID, null, PoliticsFragment.this);
         } else {
             // Otherwise, display error
             //First, hide the the progress spinner so the error message will be visible
@@ -169,7 +166,6 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
             // Update empty state with no connection error message
             mEmptyStateTextView.setText("No internet connection");
         }
-
 
 
         return rootView;

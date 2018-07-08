@@ -163,6 +163,8 @@ public final class QueryUtils {
                 String date = currentNewsStory.getString("webPublicationDate");
                 // Declare a value for the author name String
                 String author = " ";
+                // Extract the value for the key called "webUrl"
+                String url = currentNewsStory.getString("webUrl");
 
                 // Extract the JSONArray associated with the key "tags"
                 JSONArray tagsArray = currentNewsStory.getJSONArray("tags");
@@ -180,7 +182,7 @@ public final class QueryUtils {
 
                 // Create a new {@Link NewsStory} object with the headline, date and
                 // author from the JSON response
-                NewsStories newsStory = new NewsStories(headline, date, author);
+                NewsStories newsStory = new NewsStories(headline, date, author, url);
 
                 newsStories.add(newsStory);
 
