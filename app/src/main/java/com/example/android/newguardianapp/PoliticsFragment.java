@@ -127,6 +127,10 @@ public class PoliticsFragment extends Fragment implements LoaderManager.LoaderCa
         newsStoriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                // Log a message to the console that it is being clicked
+                Log.e("onClickListener: ", "Working");
+
                 // Find the current news story that was clicked on
                 NewsStories currentNewsStory = mAdapter.getItem(position);
 

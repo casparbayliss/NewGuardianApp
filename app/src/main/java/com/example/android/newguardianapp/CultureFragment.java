@@ -37,6 +37,7 @@ public class CultureFragment extends Fragment implements LoaderManager.LoaderCal
 
 
     private static final int NEWS_STORIES_LOADER_ID = 1;
+    private static final int NEWS_STORIES_LOADER_ID = 3;
 
     // Create the URL for the query
     private static final String USGS_REQUEST_URL =

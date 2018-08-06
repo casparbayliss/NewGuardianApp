@@ -49,7 +49,7 @@ public class FootballFragment extends Fragment implements LoaderManager.LoaderCa
 
 
 
-    private static final int NEWS_STORIES_LOADER_ID = 1;
+    private static final int NEWS_STORIES_LOADER_ID = 2;
 
     // Create the URL for the query
     private static final String USGS_REQUEST_URL =
