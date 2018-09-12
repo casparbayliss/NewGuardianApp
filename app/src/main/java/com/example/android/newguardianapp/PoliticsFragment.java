@@ -69,6 +69,8 @@ public class PoliticsFragment extends Fragment implements LoaderManager.LoaderCa
         final View rootView = inflater.inflate(R.layout.activity_main, container, false);
 
 
+        /**
+
         // Get the SwipeContainerLayout
         final SwipeRefreshLayout swipeLayout = rootView.findViewById(R.id.swipe_container);
 
@@ -108,6 +110,8 @@ public class PoliticsFragment extends Fragment implements LoaderManager.LoaderCa
                 }, 4000); // Delay in millis
             }
         });
+
+         **/
 
 
         // Find the listView and assign it a variable name

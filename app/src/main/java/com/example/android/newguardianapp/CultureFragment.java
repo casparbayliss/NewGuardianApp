@@ -36,7 +36,6 @@ public class CultureFragment extends Fragment implements LoaderManager.LoaderCal
     }
 
 
-    private static final int NEWS_STORIES_LOADER_ID = 1;
     private static final int NEWS_STORIES_LOADER_ID = 3;
 
     // Create the URL for the query
@@ -57,7 +56,7 @@ public class CultureFragment extends Fragment implements LoaderManager.LoaderCal
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.activity_main, container, false);
 
-
+        /**
         // Get the SwipeContainerLayout
         final SwipeRefreshLayout swipeLayout = rootView.findViewById(R.id.swipe_container);
 
@@ -74,6 +73,8 @@ public class CultureFragment extends Fragment implements LoaderManager.LoaderCal
                     LoaderManager refreshLoaderManager = getLoaderManager();
                     refreshLoaderManager.restartLoader(NEWS_STORIES_LOADER_ID, null,
                             CultureFragment.this);
+                    // Hide the no internet message
+                    mEmptyStateTextView.setVisibility(View.GONE);
                 } else {
                     // Otherwise, display error
                     //First, hide the the progress spinner so the error message will be visible
@@ -97,6 +98,8 @@ public class CultureFragment extends Fragment implements LoaderManager.LoaderCal
                 }, 4000); // Delay in millis
             }
         });
+
+         **/
 
 
         // Find the listView and assign it a variable name

@@ -8,4 +8,7 @@
     <string name="politics_title">Politics</string>
     <string name="football_title">Football</string>
     <string name="culture_title">Culture</string>
+
+    <!-- No news string -->
+    <string name="no_news">No news</string>
 </resources>
